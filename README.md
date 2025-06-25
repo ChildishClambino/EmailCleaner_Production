@@ -12,7 +12,7 @@ A Python-based Gmail inbox cleaner with a Tkinter GUI. Filter, preview, and dele
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/email-cleaner.git
+   git clone https://github.com/ChildishClambino/EmailCleaner_Production.git
    cd email-cleaner
    ```
 
