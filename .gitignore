@@ -9,3 +9,11 @@ auth/client_secret.json
 
 # Build artifacts
 dist/
+build/
+*.spec
+
+auth/token.json
+auth/__pycache__/
+gui/__pycache__/
+__pycache__/
+.env

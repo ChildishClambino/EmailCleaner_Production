@@ -1,5 +1,6 @@
 
 import os
+import sys
 import json
 import requests
 from pathlib import Path
@@ -16,8 +17,10 @@ SCOPES = [
     "https://www.googleapis.com/auth/userinfo.email"
 ]
 
+# Support PyInstaller .exe path
+BASE_DIR = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
+CLIENT_SECRET_PATH = BASE_DIR / "client_secret.json"
 TOKEN_PATH = Path(__file__).parent / "token.json"
-CLIENT_SECRET_PATH = Path(__file__).parent / "client_secret.json"
 ENV_PATH = Path(__file__).parent.parent / ".env"
 
 def get_user_email_from_token(creds):
@@ -55,7 +58,6 @@ def get_gmail_connection():
     if not creds or not creds.valid or not creds.token:
         raise Exception("OAuth2 credentials are invalid or missing")
 
-    # Try to get email from id_token, fallback to userinfo API or .env
     user_email = None
     if hasattr(creds, 'id_token') and isinstance(creds.id_token, dict):
         user_email = creds.id_token.get("email")
