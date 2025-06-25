@@ -1,0 +1,11 @@
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+auth/token.json
+auth/client_secret.json
+
+# Build artifacts
+dist/
